@@ -1,12 +1,37 @@
 @charset "UTF-8";
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 /* 因为浏览器已经渐渐统一，所以对于简单的页面可以用通配符来进行总体样式清除 */
 *,
 *::before,
@@ -91,39 +116,38 @@ body {
   animation-timing-function: ease-out;
 }
 
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  color: transparent;
+  -webkit-background-clip: text;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
 }
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem);
-  }
-  80% {
-    transform: translateX(-1rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.heading-secondary:hover {
+  transform: skewY(2deg) skewX(15deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(5rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+
+.u-cebter-text {
+  text-align: center;
 }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem;
+}
+
+.u-margin-bottom-middle {
+  margin-bottom: 4rem;
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem;
+}
+
 .btn {
   /* 为类按钮添加动画 */
 }
@@ -134,7 +158,7 @@ body {
   padding: 1.5rem 4rem;
   /* 因为a元素是一个内联元素，给他padding不会导致他的行高适应，所有需要将他设置为行类块元素 */
   display: inline-block;
-  /* 由此，因为a是文本，所以想要这个类按钮居中只需要将父盒子的文本属性居中即可，转到58行 */
+  /* 由此，因为a是文本，所以想要这个类按钮居中只需要将父盒子的文本属性居中即可 */
   border-radius: 10rem;
   transition: all 0.2s;
   /* 为伪元素设计标杆 */
@@ -166,7 +190,7 @@ body {
   height: 100%;
   width: 100%;
   border-radius: 10rem;
-  /* 此时的伪元素想当于btn的子元素，而我们想要其在btn的背后需要将他移出文档流 */
+  /* 此时的伪元素相当于btn的子元素，而我们想要其在btn的背后需要将他移出文档流 */
   position: absolute;
   top: 0;
   left: 0;
@@ -182,5 +206,59 @@ body {
   /* 使用该属性让动画未触发时保持第一帧的样子 */
   animation-fill-mode: backwards;
 }
+
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto;
+}
+.row:not(:last-child) {
+  margin-bottom: 8rem;
+}
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row [class^=col-] {
+  float: left;
+  background-color: orangered;
+}
+.row [class^=col-]:not(:last-child) {
+  margin-bottom: 6rem;
+}
+.row .col-1-of-2 {
+  width: calc((100% - 6rem) / 2);
+}
+.row .col-1-of-3 {
+  width: calc((100% - 6rem * 2) / 3 * 2 + 6rem);
+}
+.row .col-2-of-3 {
+  width: calc((100% - 6rem * 2) / 3 * 2 + 6rem);
+}
+.row .col-1-of-4 {
+  width: calc((100% - 6rem * 3) / 4);
+}
+.row .col-2-of-4 {
+  width: calc((100% - 6rem * 3) / 4 * 2 + 6rem);
+}
+.row .col-3-of-4 {
+  width: calc((100% - 6rem * 3) / 4 * 3 + 6rem * 2);
+}
+
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20vh;
+}
+
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
 
 /*# sourceMappingURL=index.css.map */

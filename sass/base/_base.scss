@@ -1,0 +1,27 @@
+// 基础样式文件
+
+/* 因为浏览器已经渐渐统一，所以对于简单的页面可以用通配符来进行总体样式清除 */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 字体大小不可以固定，会导致影响用户为浏览器设置的字体大小 */
+html {
+    /* 默认会将字体设为10px */
+    font-size: 62.5%;
+    /* 10 ÷ 16 × 100% = 62.5% */
+}
+
+/* 因为字体是继承的所以可以写在body里 */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /* font-size: 16px; */
+    line-height: 1.7;
+    color: $color-grey-dark;
+    padding: 3rem;
+}
