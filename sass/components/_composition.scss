@@ -1,0 +1,43 @@
+.composition{
+    position: relative;
+
+    &__photo{
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        border-radius: 2px;
+        position: absolute;
+        transition: all .2s;
+        z-index: 10;
+        outline-offset: 2rem;
+        
+
+        &--p1{
+            left: 0;
+            top: -2rem;
+        }
+
+        &--p2{
+            right: 0;
+            top: 2rem;
+        }
+
+        &--p3{
+            left: 20%;
+            top: 10rem;
+        }
+
+        &:hover{
+            outline: 1.5rem solid $color-primary;
+            z-index: 20;
+            transform: scale(1.05);
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+        }
+
+        
+    }
+    // 因为不约束当父盒子被hover时未hover的子元素始终处于未hover状态，即图片始终小一点，所以需要额外添加hover约束在父元素hover
+    &:hover &__photo:not(:hover){
+        transform: scale(.95);
+        box-shadow: 0 1rem 3rem rgba($color-black, .4);
+    }
+}
