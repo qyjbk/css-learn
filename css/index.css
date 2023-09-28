@@ -165,6 +165,13 @@ body {
 .btn--white::after {
   background-color: #fff;
 }
+.btn--green {
+  background-color: #55c57a;
+  color: #fff;
+}
+.btn--green::after {
+  background-color: #55c57a;
+}
 .btn::after {
   content: " ";
   display: inline-block;
@@ -225,7 +232,8 @@ body {
   left: 0;
   backface-visibility: hidden;
   background-color: orangered;
-  border-radius: 3px;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
   overflow: hidden;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
 }
@@ -474,7 +482,7 @@ body {
 }
 
 .section-tours {
-  padding: 25rem 0 50rem 0;
+  padding: 25rem 0 15rem 0;
   margin-top: -10rem;
   background-color: #f7f7f7;
 }

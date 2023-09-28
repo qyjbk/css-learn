@@ -13,7 +13,8 @@
         left: 0;
         backface-visibility: hidden;
         background-color: orangered;
-        border-radius: 3px;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
         // 背景图片会导致圆角失效，通过超出隐藏显示圆角
         overflow: hidden;
         box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
@@ -131,5 +132,13 @@
     &__price-value {
         font-size: 6rem;
         font-weight: 100;
+    }
+
+    &__price-per {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        margin-top: 50rem;
+        text-align: center;
+        display: block;
     }
 }
