@@ -39,3 +39,20 @@
         transform: translateX(0);
     }
 }
+
+@keyframes moveInBck {
+    0% {
+        opacity: 0;
+        background-image: linear-gradient(to left bottom, transparent 100%);
+    }
+
+    50% {
+        opacity: 1;
+        background-image: linear-gradient(to left bottom, $color-white 50%, transparent 100%);
+    }
+
+    100% {
+        opacity: 1;
+        background-image: linear-gradient(to left bottom, $color-white 100%);
+    }
+}

@@ -12,6 +12,7 @@
     [class^='col-'] {
         float: left;
         // background-color: orangered;
+        text-align: center;
 
         &:not(:last-child){
             margin-right: $gutter-horizontal;
@@ -20,6 +21,7 @@
 
     .col-1-of-2 {
         width: calc((100% - #{$gutter-horizontal} ) / 2 );
+        // text-align: center;
     }
 
     .col-1-of-3 {

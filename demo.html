@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .input-box {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  outline: none;
+  position: relative;
+  background-color: red;
+}
+
+.input-box:focus {
+  animation: expand 1s ease-out;
+  border-color: blue;
+}
+
+@keyframes expand {
+  0% {
+    transform: scaleX(0);
+    transform-origin: center;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: center;
+  }
+}
+
+#myInput {
+  border: none;
+  outline: none; /* 清除默认的焦点样式 */
+  padding: 10px;
+  font-size: 16px;
+  background-color: aqua;
+}
+
+/* 设置输入框获得焦点时的样式 */
+#myInput:focus {
+  position: relative;
+}
+
+/* 创建底部边框 */
+#myInput:focus::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%; /* 边框从中间开始 */
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  animation: borderExpand 0.5s ease-out forwards; /* 应用动画 */
+}
+
+/* 定义动画 */
+@keyframes borderExpand {
+  0% {
+    width: 0;
+    left: 50%;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 100%;
+    left: 0;
+  }
+}
+    </style>
+</head>
+<body>
+    <input type="text" class="input-box" />
+    <input type="text" id="myInput" />
+</body>
+</html>
