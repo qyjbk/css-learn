@@ -1,7 +1,45 @@
 @mixin clearfix {
-    &::after{
+    &::after {
         content: "";
         display: table;
         clear: both;
+    }
+}
+
+// 媒体查询管理
+
+/*
+媒体查询的断点选择
+0-600px:      Phone      phone
+600-900px：   平板        tab-port
+900-1200px:   笔记本      tab-land
+1200-1800px： 原设计页面   
+1800px +：    巨型页面     big-desktop
+
+*/
+@mixin respond($breakpoint) {
+    // 使用em以适应用户设置的浏览器的尺寸
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) {       // 600px
+            @content;
+        }
+    }
+
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) {       // 900px
+            @content;
+        }
+    }
+
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) {       // 1200px
+            @content;
+        }
+    }
+
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) {       // 1800px
+            @content;
+        }
     }
 }

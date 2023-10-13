@@ -5,8 +5,9 @@
     height: 50rem;
 
     &__side {
-        height: 52rem;
+        height: 50rem;
         width: 100%;
+        font-size: 2rem;
         transition: all .8s ease;
         position: absolute;
         top: 0;
@@ -27,13 +28,15 @@
             transform: rotateY(180deg);
 
             &-1 {
-                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark,);
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark, );
             }
+
             &-2 {
-                background-image:  linear-gradient(to right bottom, rgba($color-primary-light, .85), rgba($color-primary-dark, .85));
+                background-image: linear-gradient(to right bottom, rgba($color-primary-light, .85), rgba($color-primary-dark, .85));
             }
+
             &-3 {
-                background-image:  linear-gradient(to right bottom, rgba($color-tertiary-light, .85), rgba($color-tertiary-dark, .85));
+                background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, .85), rgba($color-tertiary-dark, .85));
             }
         }
     }
@@ -41,6 +44,7 @@
     &:hover &__side--front {
         transform: rotateY(-180deg);
     }
+
     &:hover &__side--back {
         transform: rotateY(0deg);
     }
@@ -53,19 +57,21 @@
         background-blend-mode: screen;
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        
+
         &--1 {
             background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url('../img/nat-5.jpg');
         }
+
         &--2 {
             background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url('../img/nat-6.jpg');
         }
+
         &--3 {
             background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url('../img/nat-7.jpg');
         }
     }
 
-    &__heading{
+    &__heading {
         color: $color-white;
         font-size: 2.8rem;
         font-weight: 300;
@@ -83,11 +89,13 @@
         box-decoration-break: clone;
 
         &--1 {
-            background-image:  linear-gradient(to right bottom, rgba($color-secondary-light, .85), rgba($color-secondary-dark, .85));
+            background-image: linear-gradient(to right bottom, rgba($color-secondary-light, .85), rgba($color-secondary-dark, .85));
         }
+
         &--2 {
             background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url('../img/nat-6.jpg');
         }
+
         &--3 {
             background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url('../img/nat-7.jpg');
         }
@@ -95,10 +103,12 @@
 
     &__details {
         padding: 3rem;
+
         ul {
             list-style: none;
             width: 80%;
             margin: 0 auto;
+
             li {
                 text-align: center;
                 font-size: 1.5rem;
@@ -140,5 +150,122 @@
         margin-top: 50rem;
         text-align: center;
         display: block;
+    }
+
+    @include respond(tab-port) {
+        background-color: $color-white;
+        height: auto;
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+        &__side {
+            height: auto;
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
+            box-shadow: none;  // 
+            &--back {
+                transform: rotateY(0deg);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+
+            }
+        }
+
+        &:hover &__side--front {
+            transform: rotateY(0deg);
+        }
+
+        &:hover &__side--back {
+            transform: rotateY(0deg);
+        }
+
+        // 正面样式
+        &__picture {
+            background-size: cover;
+            height: 23rem;
+            color: $color-black;
+            
+        }
+
+        &__heading {
+            color: $color-white;
+            font-size: 2.8rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            text-align: right;
+            position: absolute;
+            top: 12rem;
+            right: 2rem;
+            width: 75%;
+        }
+
+        &__heading-span {
+            padding: 1rem 1.5rem;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+
+            &--1 {
+                background-image: linear-gradient(to right bottom, rgba($color-secondary-light, .85), rgba($color-secondary-dark, .85));
+            }
+
+            &--2 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url('../img/nat-6.jpg');
+            }
+
+            &--3 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url('../img/nat-7.jpg');
+            }
+        }
+
+        &__details {
+            padding: 3rem;
+
+            ul {
+                list-style: none;
+                width: 80%;
+                margin: 0 auto;
+
+                li {
+                    text-align: center;
+                    font-size: 1.5rem;
+                    padding: 1rem;
+
+                    &:not(:last-child) {
+                        border-bottom: 1px solid $color-black;
+                    }
+                }
+            }
+        }
+
+        &__cta {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0, 0);
+            padding: 7rem 4rem 4rem;
+        }
+
+        &__price-box {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: $color-white;
+
+        }
+
+        &__price-only {
+            font-size: 1.4rem;
+        }
+
+        &__price-value {
+            font-size: 6rem;
+            font-weight: 100;
+        }
+
+        &__price-per {
+            font-size: 1.4rem;
+            margin-top: 50rem;
+            text-align: center;
+            display: block;
+        }
     }
 }
